@@ -101,13 +101,16 @@
       <h1>Mozilla</h1>
       <!-- insert <img> element, link to the small
           version of the Firefox logo -->
-
+      <img  src="originals/firefox_logo-only_RGB_120w.png"
+            alt="Firefox logo"
+            title="Firefox logo">
     </header>
 
     <main>
       <article>
         <!-- insert iframe from youtube -->
-
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ojcNcvb1olg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
         <h2>Rocking the free web</h2>
 
         <p>Mozilla are a global community of technologists, thinkers, and builders, working together to keep the Internet alive and accessible, so people worldwide can be informed contributors and creators of the Web. We believe this act of human collaboration across an open platform is essential to individual growth and our collective future.</p>
@@ -118,22 +121,36 @@
       <div class="further-info">
         <!-- insert images with srcsets and sizes -->
         <a href="https://www.mozilla.org/en-US/firefox/new/">
-          <img>
+          <picture>
+            <source media="(max-width: 500)" srcset="originals/firefox_logo-only_RGB_120w">
+            <img src="originals/firefox_logo-only_RGB_400w.png" alt="Firefox Logo 400w">
+          </picture>
         </a>
         <a href="https://www.mozilla.org/">
-          <img>
+          <picture>
+            <source media="(max-width: 500)" srcset="originals/mozilla-dinosaur-head_120w.png">
+            <img src="originals/mozilla-dinosaur-head_400w.png" alt="Dinosaur Head Logo 400w">
+          </picture>
         </a>
         <a href="https://addons.mozilla.org/">
-          <img>
+          <picture>
+            <source media="(max-width: 500)" srcset="originals/firefox-addons_120w.jpg">
+            <img src="originals/firefox-addons.jpg" alt="Firefox Addons Logo 400w">
+          </picture>
         </a>
         <a href="https://developer.mozilla.org/en-US/">
-          <img>
+          <img src="originals/mdn.svg"
+                alt="Dinosaur Outline">
         </a>
         <div class="clearfix"></div>
       </div>
 
       <div class="red-panda">
         <!-- insert picture element -->
+        <picture>
+          <source media="(max-width: 600)" srcset="originals/red-panda_600wportrait.jpg">
+          <img src="originals/red-panda_1200w.jpg" alt="Red Panda">
+        </picture>
       </div>
 
     </main>
