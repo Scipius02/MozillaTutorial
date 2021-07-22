@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<!-- should also add subcategory in id as well -->
+<head>
+    <meta charset="utf-8">
+    <title>Items sold summary</title>
+    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>Items sold summary</h1>
+
+    <table>
+      <caption>Items Sold August 2016</caption>
+        <thead>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <th id="clothes" colspan="3">Clothes</th>
+            <th id="accessories" colspan="2">Accessories</th>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <th id="trousers">Trousers</th>
+            <th id="skirts">Skirts</th>
+            <th id="dresses">Dresses</th>
+            <th id="bracelets">Bracelets</th>
+            <th id="rings">Rings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="belgium" rowspan="3">Belgium</th>
+            <th id="antwerp">Antwerp</th>
+            <td headers="trousers belgium antwerp">56</td>
+            <td headers="skirts belgium antwerp">22</td>
+            <td headers="dresses belgium antwerp">43</td>
+            <td headers="bracelets belgium antwerp">72</td>
+            <td headers="rings belgium antwerp">23</td>
+          </tr>
+          <tr>
+            <th id="gent">Gent</th>
+            <td headers="trousers belgium gent">46</td>
+            <td headers="skirts belgium gent">18</td>
+            <td headers="dresses belgium gent">50</td>
+            <td headers="bracelets belgium gent">61</td>
+            <td headers="rings belgium gent">15</td>
+         </tr>
+         <tr>
+           <th id="brussels">Brussels</th>
+           <td headers="trousers belgium brussels">51</td>
+           <td headers="skirts belgium brussels">27</td>
+           <td headers="dresses belgium brussels">38</td>
+           <td headers="bracelets belgium brussels">69</td>
+           <td headers="rings belgium brussels">28</td>
+         </tr>
+         <tr>
+           <th id="the netherlands" rowspan="2">The Netherlands</th>
+           <th id="amsterdam">Amsterdam</th>
+           <td headers="trousers netherlands amsterdam">89</td>
+           <td headers="skirts netherlands amsterdam">34</td>
+           <td headers="dresses netherlands amsterdam">69</td>
+           <td headers="bracelets netherlands amsterdam">85</td>
+           <td headers="rings netherlands amsterdam">38</td>
+         </tr>
+         <tr>
+           <th id="utrecht">Utrecht</th>
+           <td headers="trousers netherlands utrecht">80</td>
+           <td headers="skirts netherlands utrecht">12</td>
+           <td headers="dresses netherlands utrecht">43</td>
+           <td headers="bracelets netherlands utrecht">36</td>
+           <td headers="rings netherlands utrecht">19</td>
+         </tr>
+       </tbody>
+    </table>
+
+</body>
+
+</html>
