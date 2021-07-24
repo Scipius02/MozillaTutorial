@@ -1,0 +1,51 @@
+h1 {
+    color: red;
+  }
+
+p, li {
+    color: green;
+  }
+
+li {
+    list-style-type: none;
+}
+
+/* targetting declared class begins with '.', or can select class within an element like li.special */
+.special {
+    color: orange;
+    font-weight: bold;
+  }
+
+/* styling based on location: select any em that is inside a li */
+li em {
+    color: rebeccapurple;
+  }
+
+/* styling based on location: select p that comes directly after h1 */
+h1 + p {
+    font-size: 200%;
+  }
+
+/* styling based on state */
+/* unvisited */
+a:link {
+    color: pink;
+  }
+
+/* clicked */
+a:visited {
+    color: green;
+  }
+
+/* hover */
+a:hover {
+    text-decoration: none;
+  }
+
+/* style any element with a class of special, which is inside a <p>, which comes just 
+after an <h1>, which is inside a <body> */
+body h1 + p .special {
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+  }

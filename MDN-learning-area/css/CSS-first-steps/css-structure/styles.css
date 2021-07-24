@@ -1,0 +1,23 @@
+/* Create your test CSS here */
+h1 {
+    size: 3em;
+}
+p{
+    color: green;
+}
+
+/* conditional logic to apply CSS */
+@media (min-width: 600px){
+    p {
+        color: red;
+    }
+}
+a:link{
+    color:blue;
+}
+
+/* cascade: if two declarations on exact same class, the last one overrides unless it is invalid */
+/* specificity: if an element and a subclass get different declarations, the most specific overrides */
+
+/* shorthand properties: some properties nest smaller ones within a single line declaration */
+/* eg: background (a b c x y) holds: color, image, position, repeat, attachment*/

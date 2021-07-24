@@ -95,3 +95,12 @@ color: yellow;
   background-color: initial;
   color: red;
 }
+
+/* controlling inheritance */
+/*
+inherit
+    Sets the property value applied to a selected element to be the same as that of its parent element. Effectively, this "turns on inheritance".
+initial
+    Sets the property value applied to a selected element to the initial value of that property.
+unset
+    Resets the property to its natural value, which means that if the property is naturally inherited it acts like inherit, otherwise it acts like initial. */
