@@ -11,7 +11,7 @@ html {
 }
 
 /* matched styles and selectors */
-.card {
+.card {     /* 10 */
     width: 35em;
     height: 22em;
     margin: 5em auto;
@@ -20,18 +20,51 @@ html {
     border-radius: 1.5em;
 }
   
-.card header {
+.card header {      /* 11*/
     background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
     border-radius: 1.5em 1.5em 0 0;
 }
   
-.card footer {
+.card footer {      /* 11*/
     background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.1));
     border-radius: 0 0 1.5em 1.5em;
 }
   
-.card article img {
+.card article img {      /* 12 */
     max-height: 100%;
     float: right;
 }
-  
+
+/* new rulesets */
+.card header,
+.card footer {
+    height: 3em;
+    padding: 1em;
+}
+
+h2,
+p {
+    margin: 0;
+}
+
+.card article {
+    height: 12em;
+    background-color: rgba(0,0,0,.5);
+}
+
+.card h2 {
+    font-size: 2em;
+    line-height: 2em;
+}
+
+.card footer p {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.card article p {
+    font-size: 1.25em;
+    padding: 1em;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    color: white;
+}
