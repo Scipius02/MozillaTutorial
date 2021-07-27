@@ -1,0 +1,13 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 200px;
+    justify-content: center;
+  }
+  
