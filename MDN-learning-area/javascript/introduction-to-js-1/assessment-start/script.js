@@ -34,13 +34,17 @@ function result() {
     let xItem = randomValueFromArray(insertX), 
             yItem = randomValueFromArray(insertY), 
             zItem = randomValueFromArray(insertZ);
-    /*newStory = newStory.replace(/:insertx:/g, xItem); // RegEx
+    newStory = newStory.replace(/:insertx:/g, xItem); // RegEx
     newStory = newStory.replace(':inserty:', yItem);
     newStory = newStory.replace(':insertz:', zItem);
-    //newStory = newStory.replace(':insertx:', xItem);*/
+    //newStory = newStory.replace(':insertx:', xItem);
 
     // oneline RegEx replacement
-    newStory = newStory.replace(/:insert[xyz]:/g,Item);
+    /*let regexMatch = [];
+    for (let i == 0; i < 5; i++){
+        regexMatch.push(newStory.match())
+    }
+    newStory = newStory.replace(/:insert[xyz]:/g,Item);*/
 
     if(customName.value !== '') {
         let name = customName.value;
