@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Object basics: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+    let bandInfo;
+
+    // Add your code here
+    let bandData = {
+    name : 'Turmion Katilot',
+    nationality : 'Finnish',
+    genre : 'Industrial death metal',
+    members : 8,
+    formed: 2003,
+    split: false,
+    albums: [{'Pirun nyrkki':2004}, {'U.S.C.H':2008}, {'Technodiktator':2013}, {'Dance Panique':2017}]
+    };
+
+    bandInfo = `${bandData.name} is a ${bandData.nationality} ${bandData.genre} band formed in ${bandData.formed} by ${bandData.members} members. They have been active for ${2021-bandData.formed} years. Their second album is Pirun Nyrkki, released in ${bandData.albums[0]['Pirun nyrkki']}.`;
+
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    let para1 = document.createElement('p');
+    para1.textContent = bandInfo;
+    section.appendChild(para1);
+  </script>
+
+</html>
