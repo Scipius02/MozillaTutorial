@@ -1,0 +1,48 @@
+const section = document.querySelector('section');
+
+let para1 = document.createElement('p');
+let para2 = document.createElement('p');
+
+let motherInfo = 'The mother cats are called ';
+let kittenInfo;
+
+fetch('sample.json')
+.then(response => response.text())
+.then(text => displayCatInfo(text))
+
+function displayCatInfo(catString) {
+  let total = 0;
+  let male = 0;
+
+  // Add your code here
+jsonData = JSON.parse(catString);
+
+for(let i=0; i<jsonData.length; i++){
+  if(i<jsonData.length-2){
+    motherInfo += jsonData[i].name + ", ";
+  } else if (i<jsonData.length-1){
+    motherInfo += jsonData[i].name + ", and ";
+  } else{
+  motherInfo += jsonData[i].name + ".";
+  }
+
+  for(let j=0; j<jsonData[i].kittens.length; j++){
+    total++;
+    if(jsonData[i].kittens[j].gender=="m"){
+      male++;
+    }
+  }
+}
+let female = total-male;
+kittenInfo = `There are ${total} kittens in total. ${male} are male. ${female} are female.`
+
+
+// Don't edit the code below here!
+
+  para1.textContent = motherInfo;  // this is in displayCatInfo() because 
+  para2.textContent = kittenInfo;
+}
+
+section.appendChild(para1);
+section.appendChild(para2);
+    

@@ -6,6 +6,8 @@ const ctx = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
+const para = document.querySelector('p');
+
 // function to generate random number
 
 function random(min, max) {
@@ -13,15 +15,16 @@ function random(min, max) {
   return num;
 }
 
-class Ball {
+class Shape {
 
-   constructor(x, y, velX, velY, color, size) {
+   constructor(x, y, velX, velY, exists=true) {
       this.x = x;
       this.y = y;
       this.velX = velX;
       this.velY = velY;
-      this.color = color;
-      this.size = size;
+      this.exists = exists; // property, not method. revisit this? A2.
+      //this.color = color;
+      //this.size = size;
    }
 
    draw() {
@@ -65,7 +68,92 @@ class Ball {
          }
       }
    }
+}
 
+class Ball extends Shape{
+   constructor(x, y, velX, velY, color, size, exists){
+      super(x, y, velX, velY, exists);
+      this.color = color;
+      this.size = size;
+   }
+
+   collisionDetect() {
+      for (let j = 0; j < balls.length; j++) {
+        if (!(this === balls[j])) {
+          const dx = this.x - balls[j].x;
+          const dy = this.y - balls[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+    
+          if (distance < this.size + balls[j].size && balls[j].exists) {
+            balls[j].color = this.color = 'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) +')';
+          }
+        }
+      }
+    }
+}
+
+class EvilCircle extends Shape {
+   constructor(x, y, velX=20, velY=20, exists){
+      super(x, y, velX, velY, exists);
+      this.color = 'white';
+      this.size = 10;
+   }
+
+   draw() {
+      ctx.beginPath();
+      ctx.strokeStyle = this.color;
+      ctx.lineWidth = 3;
+      ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+      ctx.stroke();
+   }
+
+   checkBounds(){
+      if ((this.x + this.size) >= width) {
+         this.x -=(this.size);
+      }
+
+      if ((this.x - this.size) <= 0) {
+         this.x += -(this.size);
+      }
+
+      if ((this.y + this.size) >= height) {
+         this.y -= (this.size);
+      }
+
+      if ((this.y - this.size) <= 0) {
+         this.y = -(this.size);
+      }
+   }
+
+   setControls(){
+      let _this = this;
+      window.onkeydown = function(e) {
+         if (e.key === 'a') {
+            _this.x -= _this.velX;
+         } else if (e.key === 'e') {
+            _this.x += _this.velX;
+         } else if (e.key === ',') {
+            _this.y -= _this.velY;
+         } else if (e.key === 'o') {
+            _this.y += _this.velY;
+         }
+      }
+   }
+   
+   collisionDetect() {
+      for (let j = 0; j < balls.length; j++) {
+        if (balls[j].exists) {
+          const dx = this.x - balls[j].x;
+          const dy = this.y - balls[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+    
+          if (distance < this.size + balls[j].size) {
+            balls[j].exists = false;
+            count--;    // counter not working. probably something to do with scope
+          }
+        }
+      }
+    }
 }
 
 var balls = [];
@@ -85,18 +173,28 @@ while (balls.length < 25) {
 
   balls.push(ball);
 }
+let count = balls.length;
 
+let evilcircle = new EvilCircle(15, 15);
+evilcircle.setControls();
 function loop() {
    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
    ctx.fillRect(0, 0, width, height);
 
    for (let i = 0; i < balls.length; i++) {
-     balls[i].draw();
-     balls[i].update();
-     balls[i].collisionDetect();
+      if(balls[i].exists){
+         balls[i].draw();
+         balls[i].update();
+         balls[i].collisionDetect();
+      }
    }
 
+   evilcircle.draw();
+   evilcircle.checkBounds();
+   evilcircle.collisionDetect();
    requestAnimationFrame(loop);
 }
+
+   para.textContent = `Ball content: ${count}`;
 
 loop();

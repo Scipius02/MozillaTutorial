@@ -11,6 +11,10 @@
   </head>
   <body>
     <p class="clock"></p>
+    <button class="stopwatch" id="start">Start</button>
+    <button class="stopwatch" id="stop">Stop</button>
+    <button class="stopwatch" id="reset">Reset</button>
+    <p class="elapsed"></p>
     <script>
       function displayTime() {
         let date = new Date();
@@ -20,6 +24,65 @@
 
       displayTime();
       const createClock = setInterval(displayTime, 1000);
+
+      // select buttons
+      const startBtn = document.querySelector('#start');
+      const stopBtn = document.querySelector('#stop');
+      const resetBtn = document.querySelector('#reset');
+
+      let count = 0;
+      let minute = 0;
+      let hour = 0;
+      let leadingHour = ``;
+      let leadingMinute = ``;
+      let leadingSecond = ``;
+      function stopwatch() {
+        if (count == 60){
+          minute++;
+          count = 0;
+        }
+        if (minute == 60) {
+          hour++;
+          minute = 0;
+        }
+        if (toString(hour).length == 1) {   // the better way of doing this is in the mozilla example
+          leadingHour = `0`;
+        } else {
+          leadingHour = '';
+        }
+        if (toString(minute).length == 1) {
+          leadingMinute = `0`;
+        } else {
+          leadingMinute = '';
+        }
+        if (toString(count).length == 1) {
+          leadingSecond = `0`;
+        } else {
+          leadingSecond = '';
+        }
+        document.querySelector(".elapsed").textContent = `${leadingHour}${hour}:${leadingMinute}${minute}:${leadingSecond}${count}`;
+        count++;
+      }
+
+      // startBtn.addEventListener("click", setInterval(stopwatch, 1000)); // this is wrong: you are passing in the function so it is called instead of firing when the event happens
+      // must assign as parameter instead: https://stackoverflow.com/questions/35667267/addeventlistenerclick-firing-immediately
+      startBtn.addEventListener("click", () => {
+        setInterval(stopwatch, 1000)
+        startBtn.disabled = true;
+      }); 
+      stopBtn.addEventListener("click", () => {
+        clearInterval(stopwatch)
+        startBtn.disabled = false;
+      });
+      resetBtn.addEventListener("click", () => {
+        count, minute, hour = 0, 0, 0;
+        document.querySelector(".elapsed").textContent = `${leadingHour}${hour}:${leadingMinute}${minute}:${leadingSecond}${count}`;
+      });
+    
+      stopwatch();
     </script>
   </body>
 </html>
+
+
+<!-- the display portion is extremely sloppy and gimmicky but i get the point and the async works so it's fine to move on -->
