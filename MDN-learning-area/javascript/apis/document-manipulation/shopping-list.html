@@ -31,7 +31,31 @@
     </ul>
 
     <script>
+      const shoppingList = document.querySelector('ul');
+      const inputBar = document.querySelector('input');
+      const btn = document.querySelector('button');
 
+      btn.addEventListener('click', () => {
+        let inputString = inputBar.value;
+        inputBar.value = '';    // seems like input is .value instead of .textcontent
+        const shoppingItem = document.createElement('li');
+        const spanEle = document.createElement('span');
+        const deleteBtn = document.createElement('button');
+
+        shoppingItem.appendChild(spanEle);
+        shoppingItem.appendChild(deleteBtn);
+
+        spanEle.textContent = inputString;
+        deleteBtn.textContent = 'Delete';
+
+        shoppingList.appendChild(shoppingItem);
+
+        deleteBtn.addEventListener('click', () => {
+          deleteBtn.parentElement.remove();
+        })
+
+        inputBar.focus();   // after you add an item, highlights the input bar so you can add another immediately
+      })
     </script>
   </body>
 </html>
