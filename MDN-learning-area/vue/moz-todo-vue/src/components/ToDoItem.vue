@@ -44,7 +44,6 @@
         return this.done;
       }
     },
-
     methods: {
       deleteToDo() {
         this.$emit('item-deleted');
